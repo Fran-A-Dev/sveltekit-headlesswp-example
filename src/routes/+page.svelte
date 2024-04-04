@@ -3,13 +3,11 @@
 
   let posts = [];
 
-  async function fetchGraphQL(query, variables = {}) {
-    // Encode the GraphQL query as a URL parameter
+  async function fetchGraphQL(query = {}) {
+    // Encode the GraphQL query as a URL parameter for GET requests
     const queryParams = new URLSearchParams({
       query: query,
-      // Note: Typically, variables are not needed for GET requests in GraphQL,
-      // but if you do need to send them, they should be handled appropriately.
-      // For now, we'll leave them out of the GET request for simplicity.
+     
     }).toString();
 
     const response = await fetch(`${import.meta.env.VITE_GRAPHQL_ENDPOINT}?${queryParams}`, {
