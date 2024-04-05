@@ -44,11 +44,8 @@ export async function load({ params }) {
     console.error("No post found for URI:", params.uri);
     throw error(404, "Not found");
   }
-  // Inside your load function in +page.server.js
-  console.log("Post object:", data.post);
+
   return {
-    props: {
-      post: data.post,
-    },
+    post: data.post,
   };
 }
